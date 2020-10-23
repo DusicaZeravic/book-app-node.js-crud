@@ -1,0 +1,27 @@
+<div class="form-group">
+    <label>Title</label>
+    <input type="text" value="<%= book.title %>" class="form-control" name="title" placeholder="Book Title..." required>
+</div>
+<div class="form-group">
+    <label>Author</label>
+    <input type="text" value="<%= book.author %>" class="form-control" name="author" placeholder="Book Author..."
+        required>
+</div>
+<div class="form-row">
+    <div class="col">
+        <label>Pages</label>
+        <input type="number" value="<%= book.pages %>" name="pages" placeholder="Number of pages..."
+            class="form-control" required>
+    </div>
+    <div class="col">
+        <label>ISBN</label>
+        <input type="number" value="<%= book.isbn %>" name="isbn" placeholder="ISBN" class="form-control">
+    </div>
+</div>
+<div class="form-group">
+    <label>Description</label>
+    <textarea class="form-control" name="description" placeholder="A short description about book..." rows="4"
+        required><%= book.description %></textarea>
+</div>
+<button type="submit" class="btn btn-info mt-4">Add Book</button>
+<a href="/list" class="btn btn-secondary mt-4">Cancel</a>

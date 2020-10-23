@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
+
+* {
+  box-sizing: border-box; 
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Home Page */
+html {
+  height: 100%; 
+  width: 100%;
+}
+
+body {
+  padding: 0;
+  position: relative;
+}
+
+.mainSection {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-image: url("./images/books.jpg");
+  background-position: center;
+  background-size: cover; 
+  opacity: 0.8;
+}
+
+.title {
+  opacity: 1;
+  white-space: nowrap;
+  padding-top: 100px;
+  text-transform: uppercase;
+  overflow: hidden;
+  font-family: 'Frijole', serif;
+  font-size: 300%;
+  letter-spacing: 2px;
+  color: rgba(10, 10, 10, 0.7);
+  animation: animated-text 2s steps(29, end) 1s 1 normal;
+}
+
+.buttonSection {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buttonSection .container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 90px 140px;
+  grid-gap: 10px;
+  grid-auto-flow: dense;
+  width: 70%;
+  margin-bottom: 40px;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallery-item .image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-item .image img {
+  opacity: 0.8;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  cursor: pointer;
+  transition: .5s ease-in-out;
+}
+
+.gallery-item:hover .image img {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.gallery-item .text {
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  pointer-events: none;
+  z-index: 4;
+  transition: .3s ease-in-out;
+  -webkit-backdrop-filter: blur(5px) saturate(1.8);
+  backdrop-filter: blur(5px) saturate(1.8);
+}
+
+.gallery-item:hover .text {
+  opacity: 1;
+  animation: move-down .3s linear;
+  padding: 1em;
+  width: 100%;
+}
+
+.w-1 {
+  grid-column: span 1;
+}
+
+.w-2 {
+  grid-column: span 2;
+}
+
+.w-3 {
+  grid-column: span 3;
+}
+
+.w-4 {
+  grid-column: span 4;
+}
+
+.w-5 {
+  grid-column: span 5;
+}
+
+.w-6 {
+  grid-column: span 6;
+}
+
+.h-1 {
+  grid-row: span 1;
+} 
+
+.h-2 {
+  grid-row: span 2;
+}
+
+.h-3 {
+  grid-row: span 3;
+}
+
+.h-4 {
+  grid-row: span 4;
+}
+
+.h-5 {
+  grid-row: span 5;
+}
+
+.h-6 {
+  grid-row: span 6;
+}
+
+.insert button {
+  padding: 15px 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(133, 131, 131, 0.7);
+  color: rgb(238, 235, 235);
+  font-weight: bold;
+  font-size: 100%;
+  transition: .3s ease-in-out;
+}
+
+
+.insert button:hover {
+  outline: none;
+  color: #fff;
+  background-color: rgb(98, 98, 98);
+  transform: scale(1.1);
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+footer p {
+  text-align: center;
+  font-size: 100%;
+}
+
+/* Text animation */
+@keyframes move-down {
+  0% {
+    top: 10%;
+  }
+  50% {
+    top: 35%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@keyframes animated-text {
+  from {
+    width: 0; }
+  to {
+    width: 80%; 
+  } 
+  }
+
+/* Form style */
+.formSection {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.671), rgba(117, 105, 114, 0.73)),
+  url("./images/form.jpg");
+  background-position: center;
+  background-size: cover;
+  color: black;
+}
+
+.formSection .container {
+  width: 60%; 
+}
+
+.formSection .container h4 {
+  font-size: 200%;
+  padding: 70px 0 60px 0;
+  text-align: center;
+  letter-spacing: 2px;
+  color: rgba(39, 39, 39, 0.7); 
+}
+
+.formSection button,
+.formSection a {
+  width: 20%;
+  float: right;
+  margin: 0 auto;
+}
+
+.formSection button {
+  margin-left: 10px;
+  width: 30%;
+}
+
+.formSection .edit {
+  width: 30%;
+  margin-right: 10px;
+}
+
+/* List of books */
+
+.bookList {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+}
+
+.bookList h1 {
+  text-align: center;
+  margin: 40px 0 80px 0;
+  font-size: 300%;
+  letter-spacing: 3px;
+}
+
+.bookList .new {
+  padding: 10px 40px;
+}
+
+.bookList .container {
+  width: 100%;
+  margin: 80px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 20px;
+}
+
+.card {
+  box-shadow: 4px 4px 14px -4px rgba(5,20,11,1);
+  border: none;
+}
+
+.card-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Book Section */
+.bookSection {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.671), rgba(117, 105, 114, 0.73)),
+  url("./images/form.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookSection .container {
+  width: 70%;
+}
+
+.bookSection .container h2 {
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 250%;
+  letter-spacing: 2px;
+}
+
+.bookSection .container h5 {
+  text-align: center;
+  font-size: 150%;
+  padding-bottom: 40px;
+}
+
+.bookSection .container .bookDescription {
+  text-indent: 50px;
+  padding: 30px 0;
+  font-size: 110%;
+}
+
+/* Media Queris */
+@media(max-width: 500px) {
+  .buttonSection .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .w-1, .w-2, .w-3, .w-4, .w-5, .w-6 {
+    grid-column: span 1;
+  }
+}
