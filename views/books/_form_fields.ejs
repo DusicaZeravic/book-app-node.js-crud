@@ -1,27 +1,27 @@
 <div class="form-group">
+    <input type="text" value="<%= book.title %>" class="form-control shadow-none" name="title" required>
     <label>Title</label>
-    <input type="text" value="<%= book.title %>" class="form-control" name="title" placeholder="Book Title..." required>
 </div>
 <div class="form-group">
+    <input type="text" value="<%= book.author %>" class="form-control shadow-none" name="author" required>
     <label>Author</label>
-    <input type="text" value="<%= book.author %>" class="form-control" name="author" placeholder="Book Author..."
-        required>
 </div>
 <div class="form-row">
     <div class="col">
-        <label>Pages</label>
-        <input type="number" value="<%= book.pages %>" name="pages" placeholder="Number of pages..."
-            class="form-control" required>
+        <input type="number" value="<%= book.pages %>" name="pages" class="form-control shadow-none" required>
+        <label>Number of Pages</label>
     </div>
     <div class="col">
+        <input type="number" value="<%= book.isbn %>" name="isbn" class="form-control shadow-none" required>
         <label>ISBN</label>
-        <input type="number" value="<%= book.isbn %>" name="isbn" placeholder="ISBN" class="form-control">
     </div>
 </div>
 <div class="form-group">
-    <label>Description</label>
-    <textarea class="form-control" name="description" placeholder="A short description about book..." rows="4"
-        required><%= book.description %></textarea>
+    <textarea class="form-control shadow-none" name="description" rows="4" required><%= book.description %></textarea>
+    <label>A short description about book...</label>
+</div>
+<div class="form-group">
+    <input type="file" name="image">
 </div>
 <button type="submit" class="btn btn-info mt-4">Add Book</button>
 <a href="/list" class="btn btn-secondary mt-4">Cancel</a>

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 
-
 const bookSchema = new mongoose.Schema({
     title: {
         required: true,
@@ -21,6 +20,10 @@ const bookSchema = new mongoose.Schema({
     description: {
         required: true,
         type: String
+    },
+    img: {
+        data: Buffer,
+        contentType: String
     },
     slug: {
         type: String,

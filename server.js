@@ -22,7 +22,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(methodOverride('_method'));
 
-
 // Connect with styles and images
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views/img'));

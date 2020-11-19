@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
 
 * {
   box-sizing: border-box; 
@@ -12,6 +13,8 @@ a:hover {
 html {
   height: 100%; 
   width: 100%;
+  font-family: 'Marcellus SC', serif;
+
 }
 
 body {
@@ -36,10 +39,12 @@ body {
   padding-top: 100px;
   text-transform: uppercase;
   overflow: hidden;
-  font-family: 'Frijole', serif;
   font-size: 300%;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
   color: rgba(10, 10, 10, 0.7);
+  font-size: 350%;
+  font-weight: bold;
+  text-shadow: 2px 8px 6px rgba(17, 17, 17, 0.2), 0px -10px 50px rgba(255,255,255,0.3);
   animation: animated-text 2s steps(29, end) 1s 1 normal;
 }
 
@@ -218,7 +223,7 @@ footer p {
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.671), rgba(117, 105, 114, 0.73)),
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.671), rgba(131, 118, 128, 0.73)),
   url("./images/form.jpg");
   background-position: center;
   background-size: cover;
@@ -235,6 +240,20 @@ footer p {
   text-align: center;
   letter-spacing: 2px;
   color: rgba(39, 39, 39, 0.7); 
+  text-transform: uppercase;
+}
+
+.formSection form div {
+  position: relative;
+} 
+
+.formSection form div label {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transition: .5s;
+  pointer-events: none;
+  color: rgba(39, 39, 39, 0.7);
 }
 
 .formSection button,
@@ -254,11 +273,30 @@ footer p {
   margin-right: 10px;
 }
 
+input {
+  margin-bottom: 45px;
+}
+
+.formSection input:focus ~ label,
+.formSection textarea:focus ~ label,
+.formSection input:valid ~ label,
+.formSection textarea:valid ~ label {
+  top: -12px;
+  left: 5px;
+  color: #057c91;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+input:focus,
+textarea:focus {
+  border: none;
+} 
+
 /* List of books */
 
 .bookList {
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -266,15 +304,119 @@ footer p {
   background-color: rgb(245, 245, 245);
 }
 
-.bookList h1 {
+.bookList .text {
   text-align: center;
-  margin: 40px 0 80px 0;
-  font-size: 300%;
-  letter-spacing: 3px;
+  margin: 40px 0 30px 0;
+  font-size: 350%;
+  text-transform: uppercase;
+  letter-spacing: 20px;
+  color: rgb(97, 96, 96);
+  text-shadow: 2px 8px 6px rgba(17, 17, 17, 0.2), 0px -10px 50px rgba(255,255,255,0.3);
+  font-weight: bold;
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch{
+  2%,64%{
+    transform: translate(2px,0) skew(0deg);
+  }
+  4%,60%{
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62%{
+    transform: translate(0,0) skew(5deg); 
+  }
+}
+
+.text:before,
+.text:after{
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
+
+.text:before{
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop{
+  2%,64%{
+    transform: translate(2px,-2px);
+  }
+  4%,60%{
+    transform: translate(-2px,2px);
+  }
+  62%{
+    transform: translate(13px,-1px) skew(-13deg); 
+  }
+}
+
+.text:after{
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom{
+  2%,64%{
+    transform: translate(-2px,0);
+  }
+  4%,60%{
+    transform: translate(-2px,0);
+  }
+  62%{
+    transform: translate(-22px,5px) skew(21deg); 
+  }
 }
 
 .bookList .new {
   padding: 10px 40px;
+  display: inline-block;
+  text-decoration: none;
+  color:  rgb(241, 240, 240);
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  outline: none;
+}
+
+.bookList .new:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(77, 139, 155);
+  border-radius: 30px;
+  z-index: -2;
+}
+
+.bookList .new:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgb(3, 142, 177);
+  transition: all .3s;
+  border-radius: 30px;
+  z-index: -1;
+}
+
+.bookList .new:hover {
+  color: rgb(233, 233, 233);
+}
+
+.bookList .new:hover::before {
+  width: 100%;
 }
 
 .bookList .container {
@@ -290,14 +432,78 @@ footer p {
 }
 
 .card {
-  box-shadow: 4px 4px 14px -4px rgba(5,20,11,1);
+  box-shadow: 4px 4px 17px -3px rgba(0,0,0,0.67);
   border: none;
+  background-image: linear-gradient(rgba(243, 243, 243, 0.849), rgba(223, 223, 223, 0.863)), url('./images/card.jpg');
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-body .left {
+  float: left;
+  height: 100%;
+}
+
+.card-body .left img {
+  height: 100%;
+}
+
+.card-body .right {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-title {
+  color: rgb(77, 139, 155);
+  font-weight: bold;
 }
 
 .card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  white-space: initial;
+  text-indent: 30px;
+  font-size: 90%;
+}
+
+.buttons {
+  margin-top: 40px;
+}
+
+.buttons button {
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 150%;
+  margin-left: 30px;
+  transition: transform 0.5s;
+  background-color: rgb(207, 205, 205);
+  outline: none;
+}
+
+.buttons button:hover {
+  transform: scale(1.1);
+  background-color: rgb(235, 235, 235);
+}
+
+.buttons button i {
+  color: rgb(156, 156, 156);
+  /* color: rgb(97, 96, 96) */
+}
+
+.buttons button:hover .read i {
+  color: rgb(77, 139, 155);
+}
+
+.buttons form button:hover i {
+  color: rgb(180, 54, 54);
 }
 
 /* Book Section */
@@ -316,13 +522,29 @@ footer p {
 
 .bookSection .container {
   width: 70%;
+  animation: fadeIn 2s;
+}
+
+.bookSection .container .left {
+  float: left;
+  margin-right: 80px;
+}
+
+.rightSide .buttons {
+  float: right;
+  margin-top: 5px;
 }
 
 .bookSection .container h2 {
+  margin-top: 10px;
   padding-bottom: 20px;
   text-align: center;
   font-size: 250%;
-  letter-spacing: 2px;
+  letter-spacing: 10px;
+  color: rgb(8, 141, 158);
+  text-transform: uppercase;
+  font-family: 'Black Ops One', cursive;
+  animation: slideIn 1s;
 }
 
 .bookSection .container h5 {
@@ -334,7 +556,29 @@ footer p {
 .bookSection .container .bookDescription {
   text-indent: 50px;
   padding: 30px 0;
-  font-size: 110%;
+  font-size: 100%;
+}
+
+.bookSection a {
+  color: rgb(240, 239, 239);
+}
+
+@keyframes fadeIn {
+  from { 
+      opacity: 0;
+  }
+  to   { 
+     opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    margin-top: -30px;
+  }
+  to {
+    margin-top: 10px;
+  }
 }
 
 /* Media Queris */
